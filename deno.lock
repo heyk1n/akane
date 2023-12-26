@@ -2,6 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "npm:@discordjs/formatters": "npm:@discordjs/formatters@0.3.3",
       "npm:@discordjs/rest@2.2.0": "npm:@discordjs/rest@2.2.0",
       "npm:tweetnacl@1.0.3": "npm:tweetnacl@1.0.3"
     },
@@ -9,6 +10,12 @@
       "@discordjs/collection@2.0.0": {
         "integrity": "sha512-YTWIXLrf5FsrLMycpMM9Q6vnZoR/lN2AWX23/Cuo8uOOtS8eHB2dyQaaGnaF8aZPYnttf2bkLMcXn/j6JUOi3w==",
         "dependencies": {}
+      },
+      "@discordjs/formatters@0.3.3": {
+        "integrity": "sha512-wTcI1Q5cps1eSGhl6+6AzzZkBBlVrBdc9IUhJbijRgVjCNIIIZPgqnUj3ntFODsHrdbGU8BEG9XmDQmgEEYn3w==",
+        "dependencies": {
+          "discord-api-types": "discord-api-types@0.37.61"
+        }
       },
       "@discordjs/rest@2.2.0": {
         "integrity": "sha512-nXm9wT8oqrYFRMEqTXQx9DUTeEtXUDMmnUKIhZn6O2EeDY9VCdwj23XCPq7fkqMPKdF7ldAfeVKyxxFdbZl59A==",
@@ -69,6 +76,9 @@
     }
   },
   "remote": {
+    "https://deno.land/std@0.209.0/dotenv/mod.ts": "55d51d0c244da70e10ccbbdb68644064ce19c8af1683289d16ac802ceef64c8c",
+    "https://deno.land/std@0.209.0/dotenv/parse.ts": "d76ff5a59bd7c374a40249dc28bd15c740da0428559c838b1ea5644f561bff20",
+    "https://deno.land/std@0.209.0/dotenv/stringify.ts": "a54d044b744eba5605bcf927eaa5ac91021ee971e85b618edda66a72eff889c8",
     "https://deno.land/std@0.209.0/encoding/_util.ts": "f368920189c4fe6592ab2e93bd7ded8f3065b84f95cd3e036a4a10a75649dcba",
     "https://deno.land/std@0.209.0/encoding/hex.ts": "f0a88c260af36f19c7f36b127a4e0c960bb3e65e16cb04493912e4c8b478e877",
     "https://deno.land/std@0.209.0/http/http_status.ts": "1bd167fbc45191db718ebfcf541b5ccbe6fbe59af20297642fd82659956161c5",

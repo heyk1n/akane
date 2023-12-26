@@ -1,6 +1,5 @@
 import type { ChatInputCommand } from "../types.ts";
 import {
-	type APIChatInputApplicationCommandInteraction,
 	type APIInteractionResponseChannelMessageWithSource,
 	InteractionResponseType,
 } from "discord";
@@ -11,9 +10,7 @@ export default {
 		description: "Ngetes doang banh~ :3",
 		dm_permission: false,
 	},
-	execute(
-		_interaction: APIChatInputApplicationCommandInteraction,
-	): Response {
+	execute(_options): Response {
 		const interactionResponse:
 			APIInteractionResponseChannelMessageWithSource = {
 				type: InteractionResponseType.ChannelMessageWithSource,

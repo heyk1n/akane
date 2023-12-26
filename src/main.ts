@@ -17,6 +17,12 @@ import type { Command } from "./types.ts";
 import tweetnacl from "npm:tweetnacl@1.0.3";
 import { Status } from "std/http/http_status.ts";
 import { decodeHex } from "std/encoding/hex.ts";
+import { load } from "std/dotenv/mod.ts";
+
+await load({
+	envPath: `.env.${Deno.env.has("DENO_DEPLOYMENT_ID") ? "prod" : "dev"}`,
+	export: true,
+});
 
 async function handler(request: Request): Promise<Response> {
 	const invalidRequest = new Response(
@@ -40,6 +46,7 @@ async function handler(request: Request): Promise<Response> {
 		version,
 	})
 		.setToken(Deno.env.get("DISCORD_TOKEN")!);
+	const kv = await Deno.openKv()
 
 	if (InteractionUtils.isApplicationCommand(interaction)) {
 		const command: Command = manifest.commands.find(
@@ -48,10 +55,12 @@ async function handler(request: Request): Promise<Response> {
 
 		if (command) {
 			if (CommandUtils.isChatInput(command)) {
-				return await command.execute(
-					interaction as APIChatInputApplicationCommandInteraction,
+				return await command.execute({
+					interaction:
+						interaction as APIChatInputApplicationCommandInteraction,
 					rest,
-				);
+					kv,
+				});
 			} else {
 				throw "Unknown command type";
 			}

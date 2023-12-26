@@ -20,7 +20,7 @@ export default {
 	commands.map(
 		(_ctx: string, index: number) => `$${index}`,
 	)
-		.join("\n")
+		.join(",\n")
 }
 	]
 } as Manifest`;

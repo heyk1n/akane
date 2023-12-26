@@ -16,6 +16,9 @@
 		"build": "deno run --allow-read --allow-write --allow-run --check src/build.ts",
 		"deploy_commands:prod": "deno run --allow-net --allow-env --env=.env.prod --check src/deploy_commands.ts",
 		"deploy_commands:dev": "deno run --allow-net --allow-env --env=.env.dev --check src/deploy_commands.ts",
-		"test": "deno run --allow-net --allow-env --watch --env=.env.dev --check src/main.ts"
-	}
+		"test": "deno run --allow-net --allow-env --allow-read --watch --check src/main.ts"
+	},
+	"unstable": [
+		"kv"
+	]
 }
