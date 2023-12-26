@@ -1,0 +1,21 @@
+{
+	"fmt": {
+		"useTabs": true,
+		"indentWidth": 4,
+		"include": [
+			"deno.json",
+			"src/"
+		]
+	},
+	"imports": {
+		"@discordjs/rest": "npm:@discordjs/rest@2.2.0",
+		"discord": "https://deno.land/x/discord_api_types@0.37.66/v10.ts",
+		"std/": "https://deno.land/std@0.209.0/"
+	},
+	"tasks": {
+		"build": "deno run --allow-read --allow-write --allow-run --check src/build.ts",
+		"deploy_commands:prod": "deno run --allow-net --allow-env --env=.env.prod --check src/deploy_commands.ts",
+		"deploy_commands:dev": "deno run --allow-net --allow-env --env=.env.dev --check src/deploy_commands.ts",
+		"test": "deno run --allow-net --allow-env --watch --env=.env.dev --check src/main.ts"
+	}
+}

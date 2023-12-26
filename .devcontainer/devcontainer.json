@@ -1,0 +1,21 @@
+{
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"deno.enable": true,
+				"deno.lint": true,
+				"deno.unstable": true
+			},
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				"denoland.vscode-deno"
+			]
+		}
+	},
+	"forwardPorts": [
+		8000
+	]
+}
