@@ -5,7 +5,8 @@
 		"include": [
 			"deno.json",
 			"src/"
-		]
+		],
+		"semiColons": true
 	},
 	"imports": {
 		"@discordjs/rest": "npm:@discordjs/rest@2.2.0",

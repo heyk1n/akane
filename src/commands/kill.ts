@@ -4,7 +4,7 @@ import {
 	ApplicationCommandOptionType,
 	InteractionResponseType,
 } from "discord";
-import {userMention } from "npm:@discordjs/formatters";
+import { userMention } from "npm:@discordjs/formatters";
 
 export default {
 	data: {
@@ -41,8 +41,9 @@ export default {
 				const reduced = health - 20;
 				await kv.set(kvKey, reduced);
 
-				message =
-					`Kamu menyerang ${userMention(targetId)} hingga darahnya tersisa ${reduced}%`;
+				message = `Kamu menyerang ${
+					userMention(targetId)
+				} hingga darahnya tersisa ${reduced}%`;
 			}
 		}
 
@@ -52,8 +53,8 @@ export default {
 				data: {
 					content: message,
 					allowed_mentions: {
-						parse: []
-					}
+						parse: [],
+					},
 				},
 			} as APIInteractionResponseChannelMessageWithSource,
 		);

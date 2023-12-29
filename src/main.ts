@@ -46,7 +46,7 @@ async function handler(request: Request): Promise<Response> {
 		version,
 	})
 		.setToken(Deno.env.get("DISCORD_TOKEN")!);
-	const kv = await Deno.openKv()
+	const kv = await Deno.openKv();
 
 	if (InteractionUtils.isApplicationCommand(interaction)) {
 		const command: Command = manifest.commands.find(
