@@ -17,12 +17,6 @@ import type { Command } from "./types.ts";
 import tweetnacl from "npm:tweetnacl@1.0.3";
 import { Status } from "std/http/http_status.ts";
 import { decodeHex } from "std/encoding/hex.ts";
-import { load } from "std/dotenv/mod.ts";
-
-await load({
-	envPath: `.env.${Deno.env.has("DENO_DEPLOYMENT_ID") ? "prod" : "dev"}`,
-	export: true,
-});
 
 async function handler(request: Request): Promise<Response> {
 	const invalidRequest = new Response(
@@ -77,6 +71,12 @@ async function handler(request: Request): Promise<Response> {
 			return Response.json(interactionResponse);
 		}
 	} else if (InteractionUtils.isPing(interaction)) {
+		await rest.put(
+			Routes.applicationCommands(Deno.env.get("DISCORD_ID")),
+			{
+				body: manifest.commands.map((cmd) => cmd.data)
+			}
+		);
 		const interactionResponse: APIInteractionResponsePong = {
 			type: InteractionResponseType.Pong,
 		};
