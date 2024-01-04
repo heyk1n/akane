@@ -43,10 +43,14 @@ async function handler(request: Request): Promise<Response> {
 		.setToken(Deno.env.get("DISCORD_TOKEN")!);
 	const kv = await Deno.openKv();
 
+	console.log(!!kv);
+
 	if (InteractionUtils.isApplicationCommand(interaction)) {
+		console.log('cmd interaction');
 		const command: Command = manifest.commands.find(
 			(ctx) => ctx.data.name === interaction.data.name,
 		)!;
+		console.log(command);
 
 		if (command) {
 			if (CommandUtils.isChatInput(command)) {
