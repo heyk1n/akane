@@ -5,6 +5,7 @@ import {
 	type APIInteractionResponsePong,
 	APIVersion as version,
 	InteractionResponseType,
+	Routes
 } from "discord";
 import { REST } from "@discordjs/rest";
 
